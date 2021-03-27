@@ -1,8 +1,11 @@
-#ifndef __LIST_H_
-#define __LIST_H_
+#ifndef LIST_H
+#define LIST_H  
 #include <stdbool.h>
+#include<stdio.h>
 
-#define MaxSize 100
+
+
+#define MaxSize 10
 #define ElemType int
 
 typedef struct LNode
