@@ -104,11 +104,11 @@ void PrintList(SqList *L){
     printf("\n");
     
 }
-ElemType ListDetele(SqList *L,int k,ElemType *e1){
+ElemType ListDetele(SqList *L,int k,ElemType *e){
     if(k<1||k>L->length+1){
         return 0;
     }
-    *e1=L->data[k-1];
+    *e=L->data[k-1];
     for (int j = k; j < L->length; j++){
         /* code */
         L->data[j-1] = L->data[j];
@@ -120,7 +120,7 @@ ElemType ListDetele(SqList *L,int k,ElemType *e1){
 
 int main(){
     SqList L;
-    InitList(&L);
+    InitList(&L);  
     int n;
     printf("输入数据的个数n=:");
     printf("\n");
