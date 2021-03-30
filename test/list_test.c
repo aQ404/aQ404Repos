@@ -5,7 +5,7 @@ int main(){
     List list;
     InitList(&list);
     int n;
-    printf("please input numbers of n = :");
+    printf("please input numbers of n == ");
     scanf("%d",&n);      
     for (int i = 0; i < n; i++)
     {
