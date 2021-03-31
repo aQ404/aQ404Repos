@@ -3,4 +3,4 @@
 #忽略.exe文件
 *.exe
 *.cpp
-*.gitigonre
+*.gitignore
