@@ -1,12 +1,15 @@
-#ifndef LIST_H
-#define LIST_H  
+#ifndef LISTDEMO2_H
+#define LISTDEMO2_H  
 #include <stdbool.h>
 #include<stdio.h>
 
 
 
 #define MaxSize 10
-#define ElemType int
+#ifndef ElemType
+ #define ElemType int
+#endif
+
 
 typedef struct LNode
 {
