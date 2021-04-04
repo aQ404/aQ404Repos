@@ -12,6 +12,8 @@ typedef struct LNode
    struct LNode* next;
 }LNode,*LinkList;
 
+// 初始化单链表
+void InitList(LinkList* L);
 
 // 头插法建立单链表
 void List_HeadInsert(LinkList* L);
@@ -23,7 +25,7 @@ void List_TailInsert(LinkList* L);
 LNode* GetElem(LinkList* L,int i);
 
 // 按值查找表结点
-LNode* LocateElem(LinkList* L);
+int LocateElem(LinkList* L,ElemType e);
 
 //插入结点
 bool InsertList(LinkList* L,ElemType e,int i);

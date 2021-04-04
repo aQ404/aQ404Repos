@@ -10,7 +10,6 @@ void InitList(List *list){
         node->data[i]=0;
     }
     node->length=0;
-    
 }
 // 判断线性表是否为空，若是则返回true，否则返回false
 bool ListIsEmpty(List *list){
