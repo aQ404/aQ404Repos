@@ -12,14 +12,14 @@ void InitList(LinkList* L){
 void List_HeadInsert(LinkList* L){
     LinkList node = *L;
     ElemType e;
-    LNode* s;
+    LNode* tmp;
     scanf("%d",&e);
     while (e!=9999)
     {
-        s = (LNode*)malloc(sizeof(LNode));
-        s->data = e;
-        s->next = node->next;
-        node->next = s;
+        tmp = (LNode*)malloc(sizeof(LNode));
+        tmp->data = e;
+        tmp->next = node->next;
+        node->next = tmp;
         scanf("%d",&e);
     }
     
@@ -28,15 +28,15 @@ void List_HeadInsert(LinkList* L){
 // 尾插法建立单链表
 void List_TailInsert(LinkList* L){
     LinkList node = *L;
-    LNode *s ;
+    LNode *tmp ;
     int e;
     scanf("%d",&e);
     while (e != 9999)
     {
-        s = (LNode*)malloc(sizeof(LNode));
-        s->data = e;
-        node->next = s;
-        node = s;
+        tmp = (LNode*)malloc(sizeof(LNode));
+        tmp->data = e;
+        node->next = tmp;
+        node = tmp;
         scanf("%d",&e);
     }
     node->next = NULL;
@@ -92,45 +92,47 @@ int LocateElem(LinkList* L,ElemType e){
 
 //插入结点
 bool InsertList(LinkList* L,ElemType e,int i){
-    LNode* p;
-    if (i == 0)
+    LNode *pre = *L,*tmp;
+    int cnt = 0;
+    while (pre&&cnt<i-1)
     {
-        p=(*L);
-    }else
-    {
-        p = GetElem(L,i-1);
+        pre = pre->next;
+        cnt++;
     }
-    
-    if (p == NULL )
+    if (pre == NULL || cnt != i-1 )
     {
         printf("插入位置参数错误\n");
         return false;
+    }else{
+        tmp = (LNode*)malloc(sizeof(LNode));
+        tmp->data = e;
+        tmp->next = pre->next;
+        pre->next = tmp;
+        return true;
     }
-    
-    LNode* s;
-    s = (LNode*)malloc(sizeof(LNode));
-    s->data = e;
-    s->next = p->next;
-    p->next = s;
-    return true;
 }
 
 //删除节点
 bool DeleteList(LinkList* L,int i){
-    LNode* p;
-    if (i == 0)
+    LNode *pre,*tmp;
+    int cnt = 0;
+    pre = *L;
+    while (pre && cnt != i-1)
     {
-        p = (*L);
+        pre = pre->next;
+        cnt++;
+    }
+    if (pre == NULL || cnt != i-1 || pre->next == NULL)
+    {
+        printf("删除位置参数错误\n");
+        return false;
     }else
     {
-        p = GetElem(L,i-1);
-    }
-    LNode* s;
-    s = (LNode*)malloc(sizeof(LNode));
-    s = p->next;
-    p->next = s->next;
-    free(s);
-    
+        tmp = pre->next;
+        pre->next = tmp->next;
+        free(tmp);
+        return true;
+    }  
 }
 
 // 求单链表的表长

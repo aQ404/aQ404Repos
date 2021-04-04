@@ -16,8 +16,8 @@ int main(){
     printf("单链表中元素4在为序j == %d\n",LocateElem(&L,4));
     printf("单链表中元素5在为序j == %d\n",LocateElem(&L,5));
     printf("单链表的长度length == %d\n",LengthOfList(&L));
-    InsertList(&L,9,0);
+    InsertList(&L,9,1);
     PrintList(&L);
-    DeleteList(&L,0);
+    DeleteList(&L,1);
     PrintList(&L);
 }
