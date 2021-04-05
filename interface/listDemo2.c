@@ -30,7 +30,6 @@ void InveredList(List *list){
 // 从List中删除值为e的所有元素
 bool DeleteElemFromList(List *list,ElemType e){
     LNode *node = *list;
-    int cnt = 0;//记录顺序表中删除元素e的个数
     int j=0;
     if (node->length == 0)
     {
@@ -40,11 +39,7 @@ bool DeleteElemFromList(List *list,ElemType e){
     {
         for (int i = 0; i < node->length; i++)
         {
-            if (node->data[i] == e)
-            {
-                continue;
-            }
-            else
+            if (node->data[i] != e)
             {
                  node->data[j]=node->data[i];
                  j++; 
