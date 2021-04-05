@@ -16,6 +16,8 @@ int main(){
     list->length=n;
     InveredList(&list);
     PrintList(&list);
+    DeleteElemFromList(&list,2);
+    PrintList(&list);
     return 0;
     
 }

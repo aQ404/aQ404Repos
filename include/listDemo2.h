@@ -25,6 +25,9 @@ void InitList(List *list);
 //将顺序表中元素逆置
 void InveredList(List *list);
 
+// 从List中删除值为e的所有元素
+bool DeleteElemFromList(List *list,ElemType e);
+
 // 打印线性表的元素
 void PrintList(List *list);
 
