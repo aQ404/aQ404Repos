@@ -28,6 +28,9 @@ void InveredList(List *list);
 // 从List中删除值为e的所有元素
 bool DeleteElemFromList(List *list,ElemType e);
 
+// 从有序list中删除所有重复元素
+bool DeleteRepeatElemFromList(List *list);
+
 // 打印线性表的元素
 void PrintList(List *list);
 

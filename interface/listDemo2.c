@@ -53,6 +53,30 @@ bool DeleteElemFromList(List *list,ElemType e){
 
 }
 
+// 从有序list中删除所有重复元素
+bool DeleteRepeatElemFromList(List *list){
+    LNode *node = *list;
+    int j=1;
+    if (node->length == 0)
+    {
+        printf("顺序表为空，删除失败！！！");
+        return false;
+    }else
+    {
+        for (int i = 1; i < node->length; i++)
+        {
+            if (node->data[i] != node->data[i-1])
+            {
+                 node->data[j] = node->data[i];
+                 j++; 
+            }
+        }
+        node->length = j++;
+        return true;
+    }
+    
+}
+
 // 打印顺序表的元素
 void PrintList(List* list){
     LNode *node = *list;

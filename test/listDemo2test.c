@@ -14,9 +14,11 @@ int main(){
         scanf("%d",&list->data[i]);
     }
     list->length=n;
-    InveredList(&list);
+    // InveredList(&list);
     PrintList(&list);
-    DeleteElemFromList(&list,2);
+    // DeleteElemFromList(&list,2);
+    // PrintList(&list);
+    DeleteRepeatElemFromList(&list);
     PrintList(&list);
     return 0;
     
