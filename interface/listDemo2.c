@@ -1,15 +1,18 @@
 #include<stdbool.h>
 #include<stdio.h>
+#include<stdlib.h>
 #include "../include/listDemo2.h"
 
 // 初始化一个线性顺序表
 void InitList(List *list){
-    LNode* node = *list;
+    LNode* node ;
+    node = (LNode*)malloc(sizeof(LNode));
+    *list = node;
     for (int i = 0; i < MaxSize; i++)
     {
-        node->data[i]=0;
+        node->data[i] = 0;
     }
-    node->length=0;
+    node->length = 0;
     
 }
 
@@ -75,6 +78,54 @@ bool DeleteRepeatElemFromList(List *list){
         return true;
     }
     
+}
+
+// 合并两个有序顺序表，结果仍为有序顺序表
+List MergeList(List *list1,List *list2){
+    LNode *node1 = *list1,*node2 = *list2;
+    LNode *node3;
+    int i = 0,j = 0,k = 0;
+    node3 = (LNode*)malloc(sizeof(LNode));
+    node3->length = (node1->length+node2->length);
+    for (;i < node1->length && j < node2->length;)
+    {
+        if (node1->data[i] > node2->data[j])
+        {
+           node3->data[k] = node2->data[j];
+           printf("node3[j==%d] == %d\n",j,node2->data[j]);
+           j++;
+           k++;
+        }
+        else
+        {
+            node3->data[k] = node1->data[i];
+            printf("node3[i==%d] == %d\n",i,node1->data[i]);
+            i++;
+            k++;
+        }
+        
+    }
+    
+    if (i < node1->length - 1)
+    {
+        for (int p = i; p < node1->length; p++)
+        {
+            node3->data[k] = node1->data[p];
+            printf("node3[p==%d] == %d\n",p,node1->data[p]);
+            k++;
+        }
+        
+    }
+    if (j < node2->length - 1)
+    {
+        for (int p = j; p < node2->length; p++)
+        {
+            node3->data[k] = node2->data[p];
+            printf("node3[p==%d] == %d\n",p,node2->data[p]);
+            k++;
+        }
+    }
+    return node3;
 }
 
 // 打印顺序表的元素

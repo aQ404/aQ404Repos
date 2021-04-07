@@ -5,7 +5,7 @@
 
 
 
-#define MaxSize 10
+#define MaxSize 20
 #ifndef ElemType
  #define ElemType int
 #endif
@@ -30,6 +30,9 @@ bool DeleteElemFromList(List *list,ElemType e);
 
 // 从有序list中删除所有重复元素
 bool DeleteRepeatElemFromList(List *list);
+
+// 合并两个有序顺序表，结果仍为有序顺序表
+List MergeList(List *list1,List *list2);
 
 // 打印线性表的元素
 void PrintList(List *list);

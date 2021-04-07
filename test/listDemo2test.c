@@ -4,22 +4,36 @@
 #include"../include/ListDemo2.h"
 
 int main(){
-    List list;
-    InitList(&list);
-    int n;
-    printf("please input numbers of n == ");
-    scanf("%d",&n);      
+    
+    List list2;
+    List list1;
+    InitList(&list1);
+    InitList(&list2);
+    int n,m;
+    printf("please input numbers of n and m ");
+    scanf("%d %d",&n,&m);      
     for (int i = 0; i < n; i++)
     {
-        scanf("%d",&list->data[i]);
+        scanf("%d",&list1->data[i]);
     }
-    list->length=n;
+    list1->length=n;
+    for (int i = 0; i < m; i++)
+    {
+        scanf("%d",&list2->data[i]);
+    }
+    list2->length=m;
     // InveredList(&list);
-    PrintList(&list);
+    PrintList(&list1);
+    PrintList(&list2);
+    List list3;
+    InitList(&list3);
+    list3 = MergeList(&list1,&list2);
+    PrintList(&list3);
+    // PrintList(&list2);
     // DeleteElemFromList(&list,2);
     // PrintList(&list);
-    DeleteRepeatElemFromList(&list);
-    PrintList(&list);
+    // DeleteRepeatElemFromList(&list);
+    // PrintList(&list);
     return 0;
     
 }
