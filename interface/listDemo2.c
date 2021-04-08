@@ -17,17 +17,20 @@ void InitList(List *list){
 }
 
 //将顺序表中元素逆置
-void InveredList(List *list){
+void InveredList(List *list,int left,int right,int arraySize){
     LNode *node = *list;
     ElemType temp;
-    for (int i = 0; i < (node->length/2); i++)
+    if (left>=right || right>=arraySize)
     {
-        temp = node->data[node->length-1-i];
-        node->data[node->length-1-i]=node->data[0+i];
-        node->data[0+i] = temp;
+        return ;
     }
-    printf("node->length/2 == %d\n",node->length/2);
     
+    for (int i = 0; i < ((left+right)/2); i++)
+    {
+        temp = node->data[right-i];
+        node->data[right-i]=node->data[left+i];
+        node->data[left+i] = temp;
+    }
 }
 
 // 从List中删除值为e的所有元素

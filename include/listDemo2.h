@@ -23,7 +23,7 @@ typedef struct LNode* List;
 void InitList(List *list);
 
 //将顺序表中元素逆置
-void InveredList(List *list);
+void InveredList(List *list,int left,int right,int arraySize);
 
 // 从List中删除值为e的所有元素
 bool DeleteElemFromList(List *list,ElemType e);
