@@ -34,6 +34,10 @@ bool DeleteRepeatElemFromList(List *list);
 // 合并两个有序顺序表，结果仍为有序顺序表
 List MergeList(List *list1,List *list2);
 
+// 用最少时间在顺序表中查找数值为e的元素，
+// 若找到，则将其与后继元素位置相交换；若找不到，则将其插入表中并使表中元素仍递增有序
+bool InsertintoList(List *list,ElemType e);
+
 // 打印线性表的元素
 void PrintList(List *list);
 

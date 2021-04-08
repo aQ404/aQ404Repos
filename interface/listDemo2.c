@@ -131,6 +131,45 @@ List MergeList(List *list1,List *list2){
     return node3;
 }
 
+// 用最少时间在顺序表中查找数值为e的元素，
+// 若找到，则将其与后继元素位置相交换；若找不到，则将其插入表中并使表中元素仍递增有序
+bool InsertintoList(List *list,ElemType e){
+    LNode* node = *list;
+    int low = 0,high = node->length-1,mid;
+    while (low <= high)
+    {
+        mid = (low +high)/2;
+        if (node->data[mid] == e)
+        {
+            break;
+        }else if (node->data[mid] < e)
+        {
+            low = mid+1;
+        }else
+        {
+            high = mid-1;
+        }
+    }
+
+    if (node->data[mid] == e && mid != node->length-1)
+    {
+        int temp = node->data[mid];
+        node->data[mid] = node->data[mid+1];
+        node->data[mid+1] = temp;
+    }
+    if (low > high)
+    {
+        for (int i = node->length-1; i >= mid; i--)
+        {
+            node->data[i+1] = node->data[i];
+        }
+        node->data[mid] = e;
+        node->length++;
+    }
+    
+    
+}
+
 // 打印顺序表的元素
 void PrintList(List* list){
     LNode *node = *list;
