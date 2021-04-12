@@ -36,21 +36,24 @@ void List_TailInsert(LinkList* L){
 
 
 // 删除不带头结点的单链表L中所有值为e的结点
-void DeleteNoHeadList(LinkList L,ElemType e){
-    LNode *node;
-    if (L == NULL)
+void DeleteNoHeadList(LinkList *L,ElemType e){
+    LNode* node;
+    int count =0,count1 =0;
+    if ((*L) == NULL)
     {
-        return ;
+        return;
     }
-    if (L->data = e)
+    if ((*L)->data == e)
     {
-        node = L;
-        L = L->next;
+        node = (*L);
+        (*L) = (*L)->next;
         free(node);
         DeleteNoHeadList(L,e);
+        count++;
     }else
     {
-        DeleteNoHeadList(L->next,e);
+        DeleteNoHeadList(&(*L)->next,e);
+        count1++;
     }
  
 }
@@ -62,7 +65,7 @@ void PrintList(LinkList* L){
     if (node != NULL)
     {
         printf("list[%d]==%d   ",i++,node->data);
-        while (node->next != NULL){
+        while (node->next != NULL&& i<5){
             node = node->next;
             printf("list[%d]==%d   ",i++,node->data);
             

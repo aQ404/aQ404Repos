@@ -19,7 +19,7 @@ void InitList(LinkList* L);
 void List_TailInsert(LinkList* L);
 
 // 删除不带头结点的单链表L中所有值为e的结点
-void DeleteNoHeadList(LinkList L,ElemType e);
+void DeleteNoHeadList(LinkList *L,ElemType e);
 
 // 求单链表的表长
 int LengthOfList(LinkList* L);

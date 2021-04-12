@@ -7,8 +7,7 @@ int main(){
     InitList(&L);
     List_TailInsert(&L);
     PrintList(&L);
-    PrintList(&L);
-    DeleteNoHeadList(L,1);
+    DeleteNoHeadList(&L,1);
     PrintList(&L);
     return 0;
 }
