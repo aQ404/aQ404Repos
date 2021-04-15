@@ -150,7 +150,8 @@ int LengthOfList(LinkList* L){
 // 打印单链表中的元素
 void PrintList(LinkList* L){
     LinkList node = (*L)->next;
-    int i=0;
+    
+    int i=0;  
     while (node!=NULL)
     {
         printf("list[%d]==%d   ",i++,node->data);

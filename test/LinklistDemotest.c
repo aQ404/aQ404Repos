@@ -7,7 +7,11 @@ int main(){
     InitList(&L);
     List_TailInsert(&L);
     PrintList(&L);
-    DeleteNoHeadList(&L,1);
+    // DeleteNoHeadList(&L,1);
+    // DeleteWithHeadList(&L,1);
+    // R_Ignore_Head(&L);
+    ReserseList(&L);
+    // printf("\n");
     PrintList(&L);
     return 0;
 }
