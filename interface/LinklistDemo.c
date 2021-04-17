@@ -163,7 +163,22 @@ void ReserseList(LinkList *L){
 
 // 删除链表中最小元素
 void DeleteMinElemOfList(LinkList *L){
+    LNode *node = (*L)->next;
+    LNode *Minpre = (*L),*Min = node;
+    while (node)
+    {
+        if (node->data<Min->data)
+        {
+            Min = node;
+            Minpre->next = Min;
+        }
+        node = node->next;
+    }
 
+    LNode *tmp = Minpre->next;
+    Minpre->next = tmp->next;
+    free(tmp);
+    
 }
 
 // 打印单链表中的元素(带头结点的单链表)

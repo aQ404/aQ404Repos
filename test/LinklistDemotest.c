@@ -10,7 +10,8 @@ int main(){
     // DeleteNoHeadList(&L,1);
     // DeleteWithHeadList(&L,1);
     // R_Ignore_Head(&L);
-    ReserseList(&L);
+    // ReserseList(&L);
+    DeleteMinElemOfList(&L);
     // printf("\n");
     PrintList(&L);
     return 0;
