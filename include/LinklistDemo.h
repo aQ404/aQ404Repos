@@ -38,6 +38,8 @@ void DeleteMinElemOfList(LinkList *L);
 // 求单链表的表长
 int LengthOfList(LinkList* L);
 
+// 排序，使单链表递增有序
+void SortLinkedList(LinkList* L);
 
 // 打印单链表中的元素
 void PrintList(LinkList* L);

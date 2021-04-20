@@ -163,22 +163,90 @@ void ReserseList(LinkList *L){
 
 // 删除链表中最小元素
 void DeleteMinElemOfList(LinkList *L){
-    LNode *node = (*L)->next;
-    LNode *Minpre = (*L),*Min = node;
+    LNode *node = (*L)->next,*pre = (*L);
+    LNode *Minpre = pre,*Min = node;
     while (node)
     {
         if (node->data<Min->data)
         {
             Min = node;
-            Minpre->next = Min;
+            Minpre = pre;
         }
+        pre = node;
         node = node->next;
     }
 
-    LNode *tmp = Minpre->next;
-    Minpre->next = tmp->next;
-    free(tmp);
+    Minpre->next = Min->next;
+    free(Min);
+}
+
+// 排序，使单链表递增有序
+void SortLinkedList(LinkList* L){
+    LNode* node = (*L)->next;
+    // 冒泡排序
+    // while (node)
+    // {
+    //    LNode *tmp =node->next;
+    //    while (tmp)
+    //    {
+    //        if(tmp->data<node->data){
+    //            ElemType e =node->data;
+    //            node->data = tmp->data;
+    //            tmp->data = e;
+    //        }
+    //        tmp = tmp->next;
+    //    }
+    //    node = node->next;
+       
+    // }
+    // 插入排序
+    LNode *tail = node;
     
+    while (tail->next)
+    {
+        tail = tail->next;
+    }
+    
+    LNode *r;
+    r = tail;
+    while (node != tail)
+    {
+        LNode *pre = (*L);
+        LNode *minpre = pre,*min = node;
+        while (node != tail)
+        {
+            if (node->data < min->data)
+            {
+                min = node;
+                minpre = pre;
+            }
+            pre = node;
+            node = node->next;
+        }
+        minpre->next = min->next;
+        r->next = min;
+        r = min;
+        node= (*L)->next;
+    }
+    r->next = NULL;
+    node = (*L)->next;
+    LNode *tmp = node->next;
+    while (node)
+    {
+        if (node->data > tail->data)
+        {
+            
+            tail->next = node->next;
+            node->next = tail;
+            ElemType temp = node->data;
+            node->data = tail->data;
+            tail->data = temp;
+            break;
+        }
+        
+        node = node->next;
+    }
+    (*L)->next = tmp;
 }
 
 // 打印单链表中的元素(带头结点的单链表)
