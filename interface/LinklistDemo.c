@@ -249,6 +249,54 @@ void SortLinkedList(LinkList* L){
     (*L)->next = tmp;
 }
 
+// 删除介于给定的两个值之间的元素结点
+void DeleteRangeList(LinkList *L,int min,int max){
+    LNode *node = (*L)->next, *pre = *L;
+    while (node)
+    {
+        if (node->data >= min && node->data<=max)
+        {
+            pre->next = node->next;
+            free(node);
+            node = pre->next;
+        }
+        else
+        {
+            pre = node;
+            node = node->next;
+        }
+        
+    }
+    
+}
+
+// 找出两个链表的公共结点
+LinkList FindCommonNode(LinkList *L1,LinkList *L2){
+    LNode *node1 = (*L1)->next,*node2 = (*L2)->next;
+    LinkList L = (LNode*)malloc(sizeof(LNode));
+    L->next = NULL;
+    LNode *node = L;
+    while (node1)
+    {
+        node2 = (*L2)->next;
+        while (node2)
+        {
+            if (node1->data == node2->data)
+            {
+                LNode* tmp = (LNode*)malloc(sizeof(LNode));
+                tmp->data = node1->data;
+                node->next = tmp;
+                node = tmp;
+            }
+            node2 = node2->next;
+        }
+        node1 = node1->next;
+    }
+    node->next = NULL;
+    return L;
+    
+}
+
 // 打印单链表中的元素(带头结点的单链表)
 void PrintList(LinkList* L){
     LNode* node = (*L)->next;

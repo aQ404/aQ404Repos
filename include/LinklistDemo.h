@@ -41,6 +41,12 @@ int LengthOfList(LinkList* L);
 // 排序，使单链表递增有序
 void SortLinkedList(LinkList* L);
 
+// 删除介于给定的两个值之间的元素结点
+void DeleteRangeList(LinkList *L,int min,int max);
+
+// 找出两个链表的公共结点
+LinkList FindCommonNode(LinkList *L1,LinkList *L2);
+
 // 打印单链表中的元素
 void PrintList(LinkList* L);
 
