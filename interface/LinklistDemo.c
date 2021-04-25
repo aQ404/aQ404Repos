@@ -297,6 +297,69 @@ LinkList FindCommonNode(LinkList *L1,LinkList *L2){
     
 }
 
+// 按递增次序输出单链表的元素，并释放结点所占空间
+void PrintIncrease(LinkList *L){
+    LNode *node = (*L)->next, *pre = *L;
+    LNode *minpre = pre,*min;
+    while (node)
+    {
+        pre = *L;
+        minpre = pre;
+        min = node;
+        while (node)
+        {
+            if(node->data < min->data){
+                min=node;
+                minpre = pre;
+            }
+            pre = node ;
+            node = node->next;
+        }
+        printf("%d  ",min->data);
+        minpre->next = min->next;
+        free(min);
+        node = (*L)->next;
+        
+    }
+    free(node);
+    printf("\n");
+    
+}
+
+// 单链表拆分成A，B，保持其相对顺序不变
+void SplitList(LinkList *L){
+    LNode *node = (*L)->next;
+    LinkList L1,L2;
+    InitList(&L1);
+    InitList(&L2);
+    LNode *node1 = (L1),*node2 = (L2);
+    int i=0;
+    while (node)
+    {
+        if (i % 2 == 0)
+        {
+            node1->next = node;
+            node1 = node;
+        }else 
+        {
+            node2->next = node;
+            node2 = node;
+        }
+        node = node->next;
+        i++;
+    }
+    node1->next = NULL;
+    node2->next = NULL;
+    printf("----以下是L1的元素-----\n");
+    PrintList(&L1);
+    printf("----L1输出完成---\n");
+    printf("\n");
+    printf("----以下是L2的元素-----\n");
+    PrintList(&L2);
+    printf("----L2输出完成---\n");
+    printf("\n");
+}
+
 // 打印单链表中的元素(带头结点的单链表)
 void PrintList(LinkList* L){
     LNode* node = (*L)->next;

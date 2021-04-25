@@ -47,7 +47,14 @@ void DeleteRangeList(LinkList *L,int min,int max);
 // 找出两个链表的公共结点
 LinkList FindCommonNode(LinkList *L1,LinkList *L2);
 
+// 按递增次序输出单链表的元素，并释放结点所占空间
+void PrintIncrease(LinkList *L);
+
+// 单链表拆分成A，B，保持其相对顺序不变
+void SplitList(LinkList *L);
+
 // 打印单链表中的元素
 void PrintList(LinkList* L);
+
 
 #endif

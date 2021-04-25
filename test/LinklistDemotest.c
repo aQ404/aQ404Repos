@@ -4,13 +4,16 @@
 #include"../include/LinklistDemo.h"
 int main(){
     LinkList L;
-    LinkList L1,L2;
-    InitList(&L1);
-    InitList(&L2);
-    List_TailInsert(&L1);
-    List_TailInsert(&L2);
-    PrintList(&L1);
-    PrintList(&L2);
+    InitList(&L);
+    List_TailInsert(&L);
+    PrintList(&L);
+    // LinkList L1,L2;
+    // InitList(&L1);
+    // InitList(&L2);
+    // List_TailInsert(&L1);
+    // List_TailInsert(&L2);
+    // PrintList(&L1);
+    // PrintList(&L2);
     // DeleteNoHeadList(&L,1);
     // DeleteWithHeadList(&L,1);
     // R_Ignore_Head(&L);
@@ -18,7 +21,9 @@ int main(){
     // DeleteMinElemOfList(&L);
     // SortLinkedList(&L);
     // DeleteRangeList(&L,1,3);
-    L = FindCommonNode(&L1,&L2);
+    // L = FindCommonNode(&L1,&L2);
+    // PrintIncrease(&L);
+    SplitList(&L);
     // printf("\n");
     PrintList(&L);
     return 0;
