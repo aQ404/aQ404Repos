@@ -5,15 +5,15 @@
 int main(){
     LinkList L;
     InitList(&L);
-    List_TailInsert(&L);
-    PrintList(&L);
-    // LinkList L1,L2;
-    // InitList(&L1);
-    // InitList(&L2);
-    // List_TailInsert(&L1);
-    // List_TailInsert(&L2);
-    // PrintList(&L1);
-    // PrintList(&L2);
+    // List_TailInsert(&L);
+    // PrintList(&L);
+    LinkList L1,L2;
+    InitList(&L1);
+    InitList(&L2);
+    List_TailInsert(&L1);
+    List_TailInsert(&L2);
+    PrintList(&L1);
+    PrintList(&L2);
     // DeleteNoHeadList(&L,1);
     // DeleteWithHeadList(&L,1);
     // R_Ignore_Head(&L);
@@ -23,8 +23,10 @@ int main(){
     // DeleteRangeList(&L,1,3);
     // L = FindCommonNode(&L1,&L2);
     // PrintIncrease(&L);
-    SplitList(&L);
+    // SplitList02(&L);
+    // DeleteRepeatingElems(&L);
     // printf("\n");
-    PrintList(&L);
+    MergeList(&L1,&L2);
+    PrintList(&L1);
     return 0;
 }

@@ -360,6 +360,127 @@ void SplitList(LinkList *L){
     printf("\n");
 }
 
+// 将带头结点的单链表拆分成两个线性表，使得A = {a1,a2,...an},B = {bn,...b2,b1}
+void SplitList02(LinkList *L){
+    LNode *node = (*L)->next;
+    int i = 1;
+    LinkList La;
+    LinkList Lb;
+    InitList(&La);
+    InitList(&Lb);
+    LNode *rA = La,*rB = Lb;
+    rB->next = NULL;
+    while (node)
+    {
+        LNode *tmp = node->next;
+        if (i % 2 == 1)
+        {
+            rA->next = node;
+            rA = node;
+            
+        }else
+        {
+            node->next = rB->next;
+            rB->next = node;
+        }
+        node = tmp;
+        i++;
+    }
+    rA->next = NULL;
+    printf("----以下是La的元素-----\n");
+    PrintList(&La);
+    printf("----La输出完成---\n");
+    printf("\n");
+    printf("----以下是Lb的元素-----\n");
+    PrintList(&Lb);
+    printf("----Lb输出完成---\n");
+    printf("\n");
+}
+
+// 删除单链表中重复元素
+void DeleteRepeatingElems(LinkList *L){
+    LNode *node = (*L)->next;
+
+
+    // 如果单链表无序
+    /*while (node)
+    {
+        LNode *tmpper = node;
+        LNode *tmp = node->next;
+        while (tmp)
+        {
+            if (tmp->data == node->data)
+            {
+                tmpper->next = tmp->next;
+                free(tmp);
+                tmp = tmpper->next;
+            }else
+            {
+                tmpper = tmp;
+                tmp = tmp->next;
+            }              
+        }
+        node = node->next;
+    }*/
+
+
+    // 如果单链表有序
+    while (node->next)
+    {
+        LNode *p = node->next;
+        if (node->data == p->data)
+        {
+            node->next = p->next;
+            free(p);
+        }else
+        {
+            node = node->next;
+        }
+    }
+    
+}
+
+// 合并两个递增单链表，使得合并后为递减单链表
+void MergeList(LinkList *L1,LinkList *L2){
+    LNode *rA = (*L1)->next;
+    LNode *rB = (*L2)->next;
+    (*L1)->next = NULL;
+
+    while (rA)
+    {
+        if (rB == NULL)
+        {
+            break;
+        }
+        if (rA->data < rB->data)
+        {
+            LNode *tmp = rA->next;
+            rA->next = (*L1)->next;
+            (*L1)->next = rA;
+            rA = tmp;
+        }else
+        {
+            LNode *tmp = rB->next;
+            rB->next = (*L1)->next;
+            (*L1)->next = rB;
+            rB = tmp;
+        }
+    }
+    if (rA)
+    {
+        rB = rA;
+    }
+    
+    while (rB)
+    {
+        LNode *tmp = rB->next;
+        rB->next = (*L1)->next;
+        (*L1)->next = rB;
+        rB = tmp;
+    }
+    free((*L2));
+    
+}
 // 打印单链表中的元素(带头结点的单链表)
 void PrintList(LinkList* L){
     LNode* node = (*L)->next;
@@ -372,7 +493,7 @@ void PrintList(LinkList* L){
 
     while (node != NULL)
     {
-        printf("list[%d]==%d   ",i++,node->data);
+        printf("list[%d]==%d   ",++i,node->data);
         node = node->next;
     }
     printf("\n");

@@ -53,6 +53,15 @@ void PrintIncrease(LinkList *L);
 // 单链表拆分成A，B，保持其相对顺序不变
 void SplitList(LinkList *L);
 
+// 将带头结点的单链表拆分成两个线性表，使得A = {a1,a2,...an},B = {bn,...b2,b1}
+void SplitList02(LinkList *L);
+
+// 删除单链表中重复元素
+void DeleteRepeatingElems(LinkList *L);
+
+// 合并两个递增单链表，使得合并后为递减单链表
+void MergeList(LinkList *L1,LinkList *l2);
+
 // 打印单链表中的元素
 void PrintList(LinkList* L);
 
